@@ -1,6 +1,6 @@
-namespace hurricane{
-    namespace bolt{
-        class IBolt : public base::ITask{
+namespace hurricane {
+    namespace bolt {
+        class IBolt : public base::ITask {
         public:
             virtual void Prepare(base::OutputCollector& outputCollector) = 0;
             virtual void Cleanup() = 0;

@@ -1,9 +1,9 @@
-namespace hurricane{
-    namespace base{
-        class OutputCollector{
+namespace hurricane {
+    namespace base {
+        class OutputCollector {
         public:
-            struct Strategy{
-                enum Values{
+            struct Strategy {
+                enum Values {
                     Global = 0;
                     Random = 1;
                     Group = 2;
@@ -15,22 +15,22 @@ namespace hurricane{
             
             virtual void Emit(const Values& values);
             
-            void SetCommander(hurricane::message::ManagerCommander* commander){
-                if(_commander){
+            void SetCommander(hurricane::message::ManagerCommander* commander) {
+                if(_commander) {
                     delete _commander;
                 }
                 _commander = commander;
             }
             
-            void SetTaskIndex(int taskIndex){
+            void SetTaskIndex(int taskIndex) {
                 _taskIndex = taskIndex;
             }
 
-            void SetGroupField(int groupField){
+            void SetGroupField(int groupField) {
                 _groupField = groupField;
             }
 
-            int GetGroupField() const{
+            int GetGroupField() const {
                 return _groupField;
             }
 

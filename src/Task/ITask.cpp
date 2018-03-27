@@ -1,5 +1,5 @@
 //typedef std::vector<std::string> Fields;
-class ITask{
+class ITask {
 public:
     virtual ~ITask(){}
 

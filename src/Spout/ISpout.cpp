@@ -1,6 +1,6 @@
-namespace hurricane{
-    namespace spout{
-        class ISpout : public base::ITask{
+namespace hurricane {
+    namespace spout {
+        class ISpout : public base::ITask {
         public:
             virtual void Open(base::OutputCollector& outputCollector) = 0;
             virtual void Close() = 0;

@@ -1,10 +1,10 @@
-namespace hurricane{
-    namespace base{
-        class TypeMismatchException : std::exception{
+namespace hurricane {
+    namespace base {
+        class TypeMismatchException : std::exception {
         public:
-            TypeMismatchException(const std::string& message) : _message(message){}
+            TypeMismatchException(const std::string& message) : _message(message) {}
 
-            const char* what() const noexcept override{
+            const char* what() const noexcept override {
                 return _message.c_str();
             }
 
@@ -12,9 +12,9 @@ namespace hurricane{
             std::string _message;
         };
 
-        class Value{
+        class Value {
         public:
-            enum class Type{
+            enum class Type {
                 Boolean,
                 Character,
                 Int8,
@@ -26,7 +26,7 @@ namespace hurricane{
                 String
             };
 
-            union InnerValue{
+            union InnerValue {
                 bool booleanValue;
                 char characterValue;
                 int8_t int8Value;
@@ -37,48 +37,48 @@ namespace hurricane{
                 double doubleValue;
             };
 
-            Value(bool value) : _type(Type::Boolean){
+            Value(bool value) : _type(Type::Boolean) {
                 _value.booleanValue = value;
             }
 
-            Value(char value) : _type(Type::Character){
+            Value(char value) : _type(Type::Character) {
                 _value.characterValue = value;
             }
 
-            Value(int8_t value): _type(Type::Int8){
+            Value(int8_t value): _type(Type::Int8) {
                 _value.int8Value = value;
             }
 
-            Value(int16_t value) : _type(Type::Int16){
+            Value(int16_t value) : _type(Type::Int16) {
                 _value.int16Value = value;
             }
 
-            Value(int32_t value) : _type(Type::Int32){
+            Value(int32_t value) : _type(Type::Int32) {
                 _value.int32Value = value;
             }
 
-            Value(int64_t value) : _type(Type::int64Value){
+            Value(int64_t value) : _type(Type::int64Value) {
                 _value.int64Value = value;
             }
 
-            Value(float value) : _type(Type::Float){
+            Value(float value) : _type(Type::Float) {
                 _value.float = value;
             }
 
-            Value(double value) : _type(Type::Double){
+            Value(double value) : _type(Type::Double) {
                 _value.doubleValue = value;
             }
 
-            Value(const std::string& value) : _type(Type::String){
+            Value(const std::string& value) : _type(Type::String) {
                 _stringValue = value;
             }
 
-            Value(const char* value) : Value(std::string(value)){
+            Value(const char* value) : Value(std::string(value)) {
 
             }
 
             bool ToBoolean() const {
-                if(_type != Type::Boolean){
+                if(_type != Type::Boolean) {
                     throw TypeMismatchException("The type of value is not boolean");
                 }
             }
